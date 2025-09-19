@@ -374,6 +374,7 @@ export const invoiceGenerate = (item) => {
 };
 function barcodeDataURL(value, options = {}) {
   const canvas = document.createElement("canvas");
+  console.log(value);
   JsBarcode(canvas, String(value), {
     format: "CODE128",
     width: 2, // bar thickness (increase for denser bars)
@@ -401,7 +402,7 @@ export const generateStick = (item) => {
 
   // ✅ Center the barcode
   // let image = `${barCodeImageLink}`;
-  const img = barcodeDataURL(item?.courier?.consignment_id);
+  const img = barcodeDataURL(item?.fulfillment?.consignment_id);
   const barcodeWidth = 150;
   const barcodeHeight = 30;
   const barcodeX = (pageWidth - barcodeWidth) / 2; // center horizontally

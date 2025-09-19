@@ -29,7 +29,7 @@ function generateBulkPrintStickers(invoiceArray) {
 
     // ✅ Center the barcode
     // let image = `${barCodeImageLink}`;
-    const img = barcodeDataURL(item?.courier?.consignment_id);
+    const img = barcodeDataURL(item?.fulfillment?.consignment_id);
     const barcodeWidth = 150;
     const barcodeHeight = 30;
     const barcodeX = (pageWidth - barcodeWidth) / 2; // center horizontally
@@ -135,7 +135,7 @@ function generateBulkPrintStickers(invoiceArray) {
 
     doc.text(`Address`, 22, 124);
 
-    doc.setFontSize(26).text(item?.shipping_address?.street, 65, 124, {
+    doc.setFontSize(18).text(item?.shipping_address?.street, 65, 123, {
       maxWidth: 140,
       align: "left",
     });
